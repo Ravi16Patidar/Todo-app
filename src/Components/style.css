@@ -1,0 +1,94 @@
+.container {
+  width: 80vw;
+  height: 90vh;
+  /* height: auto; */
+  box-shadow: 0 0 15px 0px rgba(128, 128, 128, 0.767);
+  padding: 50px 30px;
+  box-sizing: border-box;
+  background-color: #e5e8e8;
+  overflow-y: scroll;
+  text-align: center;
+}
+.styleAddBtn {
+  width: 80px !important;
+  height: 40px !important;
+}
+.appName{
+    position: relative;
+    bottom:30px;
+    letter-spacing:1px;
+}
+.inputField {
+  width: 80% !important;
+  height: 45px !important;
+  border-radius: 5px !important ;
+  /* outline:1.5px solid #95bee7; */
+}
+.searchField {
+  width: 20% !important;
+  height: 45px !important;
+  border-radius: 5px !important ;
+  float: right;
+  margin-top: 30px;
+}
+.inputParent {
+  display: flex;
+  justify-content: space-between;
+}
+.itemLine {
+  height: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: 20px 0;
+  background-color: rgba(15, 23, 42, 0.66);
+  padding: 20px;
+  border-radius: 10px;
+}
+.iconBtnContainer {
+  display: flex;
+  gap: 15px !important;
+}
+
+.icon {
+  width: 20px !important;
+  height: 17px !important;
+}
+.noDataFoundText {
+  font-size: 20px !important;
+  font-weight: bold;
+}
+.noDataFoundContainer {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 60px;
+  background-color: rgba(15, 23, 42, 0.333);
+}
+@media screen and (max-width: 676px) {
+    .inputField{
+        width:50% !important;
+    }
+    .searchField{
+        width:100% !important;
+    }
+
+}
+@media screen and (max-width: 570px) {
+    .itemLine{
+        flex-direction: column;
+        gap:20px;
+    }
+
+}
+@media screen and (max-width:420px) {
+    .inputField{
+        width:100% !important;
+
+    }
+    .inputParent{
+        flex-direction: column;
+        gap: 20px;
+    }
+}
+
