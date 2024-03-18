@@ -58,7 +58,7 @@
 .noDataFoundText {
   font-size: 20px !important;
   font-weight: bold;
-  color: white;
+  color: rgb(213, 207, 207);
 }
 .noDataFoundContainer {
   display: flex;
