@@ -41,9 +41,10 @@
   justify-content: space-between;
   align-items: center;
   margin: 20px 0;
-  background-color: rgba(15, 23, 42, 0.66);
+  background-color: rgba(15, 23, 42, 0.792);
   padding: 20px;
   border-radius: 10px;
+  box-shadow:0 0 10px 1px rgba(0, 0, 0, 0.724);
 }
 .iconBtnContainer {
   display: flex;
@@ -57,13 +58,17 @@
 .noDataFoundText {
   font-size: 20px !important;
   font-weight: bold;
+  color: white;
 }
 .noDataFoundContainer {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 60px;
-  background-color: rgba(15, 23, 42, 0.333);
+  border-radius:10px;
+  background-color: rgba(15, 23, 42, 0.792);
+  box-shadow:0 0 10px 1px rgba(0, 0, 0, 0.724);
+
 }
 @media screen and (max-width: 676px) {
     .inputField{

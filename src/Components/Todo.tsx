@@ -1,4 +1,4 @@
-import React, { Fragment, SyntheticEvent, useEffect, useMemo, useState, forwardRef } from "react";
+import React, { Fragment, SyntheticEvent, useEffect, useMemo, useState } from "react";
 import "./style.css";
 import { Button, OutlinedInput, Typography, Snackbar, Alert } from '@mui/material';
 import DeleteIcon from '@mui/icons-material/Delete';
@@ -47,7 +47,7 @@ const Todo = React.memo(() => {
   };
 
   const handleDelete = (position: any) => {
-    let updateList = itemList.filter((_: any, index: any) => index != position);
+    let updateList = itemList.filter((_: any, index: any) => index !== position);
     setItemList(updateList);
     setOpenDeleteTaskSnackbar(true);
   };
