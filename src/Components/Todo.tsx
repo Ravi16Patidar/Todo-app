@@ -38,14 +38,18 @@ const Todo = React.memo(() => {
         setEditIndex(null);
         setOpenEditTaskSnackbar(true);
       } else {
-        setItemList([...itemList, item]);
+        const updatedList = [...itemList, item];
+        setItemList(updatedList);
         setTodoItems("");
         setOpenAddTaskSnackbar(true);
       }
+      // Update localStorage here
+      localStorage.setItem("todoItems", JSON.stringify([...itemList, item]));
     } else {
       setOpenInputFilled(true);
     }
   };
+  
 
   const handleInputChange = (event:any) => {
     const { value } = event.target;
@@ -58,14 +62,16 @@ const Todo = React.memo(() => {
   };
 
   const deleteSelectedItem = () => {
-    let updatedList = itemList.filter((_:any, index:number) => index !== selectedItemIndex);
+    let updatedList = itemList.filter((_:any, index:any) => index !== selectedItemIndex);
     setItemList(updatedList);
     setOpenModal(false);
     setOpenDeleteTaskSnackbar(true);
-    setShowCelebration(true)
+    setShowCelebration(true);
+    // Update localStorage here
+    localStorage.setItem("todoItems", JSON.stringify(updatedList));
     setTimeout(() => {
-      setShowCelebration(false); 
-    }, 5000); 
+      setShowCelebration(false);
+    }, 5000);
   };
 
   const handleEdit = (position:any) => {
@@ -246,6 +252,7 @@ const Todo = React.memo(() => {
           boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.2)',
           borderRadius:'10px'
         }}>
+          {/* <h2 id="modal-title">Confirm Deletion</h2> */}
           <p id="modal-description">Are you sure you want to delete this item?</p>
           <div style={{ marginTop: '35px', }}>
             <Button variant="contained" color="error" onClick={deleteSelectedItem} style={{ marginRight: '40px' ,width:'120px',height:'40px'}}>
