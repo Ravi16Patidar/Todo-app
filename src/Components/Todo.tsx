@@ -27,7 +27,6 @@ const Todo = React.memo(() => {
   const [openModal, setOpenModal] = useState(false);
   const [selectedItemIndex, setSelectedItemIndex] = useState(null);
   const [showCelebration, setShowCelebration] = useState(false); 
-
   const handleSubmit = () => {
     if (item.length > 0) {
       if (editIndex != null) {
@@ -37,18 +36,21 @@ const Todo = React.memo(() => {
         setTodoItems("");
         setEditIndex(null);
         setOpenEditTaskSnackbar(true);
+        // Update localStorage here
+        localStorage.setItem("todoItems", JSON.stringify(updatedItems));
       } else {
         const updatedList = [...itemList, item];
         setItemList(updatedList);
         setTodoItems("");
         setOpenAddTaskSnackbar(true);
+        // Update localStorage here
+        localStorage.setItem("todoItems", JSON.stringify(updatedList));
       }
-      // Update localStorage here
-      localStorage.setItem("todoItems", JSON.stringify([...itemList, item]));
     } else {
       setOpenInputFilled(true);
     }
   };
+  
   
 
   const handleInputChange = (event:any) => {
