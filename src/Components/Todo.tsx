@@ -246,7 +246,6 @@ const Todo = React.memo(() => {
           boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.2)',
           borderRadius:'10px'
         }}>
-          {/* <h2 id="modal-title">Confirm Deletion</h2> */}
           <p id="modal-description">Are you sure you want to delete this item?</p>
           <div style={{ marginTop: '35px', }}>
             <Button variant="contained" color="error" onClick={deleteSelectedItem} style={{ marginRight: '40px' ,width:'120px',height:'40px'}}>
