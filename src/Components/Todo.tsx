@@ -1,5 +1,7 @@
 import React, { Fragment, useState } from "react";
 import "./style.css";
+import useWindowSize from 'react-use/lib/useWindowSize'
+
 import {
   Button,
   OutlinedInput,
@@ -12,7 +14,9 @@ import DeleteIcon from "@mui/icons-material/Delete";
 import EditIcon from "@mui/icons-material/Edit";
 import Confetti from "react-confetti";
 
+
 const Todo = React.memo(() => {
+  const { width, height } = useWindowSize()
   const [item, setTodoItems] = useState("");
   const [openAddTaskSnackbar, setOpenAddTaskSnackbar] = useState(false);
   const [openDeleteTaskSnackbar, setOpenDeleteTaskSnackbar] = useState(false);
@@ -98,7 +102,10 @@ const Todo = React.memo(() => {
 
   return (
     <Fragment>
-       {showCelebration && <Confetti />}
+       {showCelebration &&   <Confetti
+      width={width}
+      height={height}
+    />}
       <div className="container">
         <h1 className="appName">Todo App</h1>
         <div className="inputParent">
@@ -243,12 +250,12 @@ const Todo = React.memo(() => {
         aria-labelledby="modal-title"
         aria-describedby="modal-description"
       >
-        <div style={{
+        <div className="modalContainer" style={{
           position: 'absolute',
           top: '50%',
           left: '50%',
           transform: 'translate(-50%, -50%)',
-          backgroundColor: 'white',
+          backgroundColor:'rgba(128, 128, 128, 0.767)',
           padding: '20px',
           textAlign: 'center',
           boxShadow: '0px 3px 10px rgba(0, 0, 0, 0.2)',
@@ -256,7 +263,7 @@ const Todo = React.memo(() => {
         }}>
           {/* <h2 id="modal-title">Confirm Deletion</h2> */}
           <p id="modal-description">Are you sure you want to delete this item?</p>
-          <div style={{ marginTop: '35px', }}>
+          <div style={{ marginTop: '35px', }} className="modalButtonContainer">
             <Button variant="contained" color="error" onClick={deleteSelectedItem} style={{ marginRight: '40px' ,width:'120px',height:'40px'}}>
               Delete
             </Button>
