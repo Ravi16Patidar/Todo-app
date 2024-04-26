@@ -77,7 +77,7 @@ const Todo = React.memo(() => {
     localStorage.setItem("todoItems", JSON.stringify(updatedList));
     setTimeout(() => {
       setShowCelebration(false);
-    }, 5000);
+    }, 3800);
   };
 
   const handleEdit = (position:any) => {
